@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+// The message contains one line of file.
+message FileLine { string line = 1; }
+
+// The file status message
+message FileStatus {
+  bool file_exists = 1;          // exists or not
+  string created_time = 2;       // when the file added to service
+  string last_modified_date = 3; // when the file modified last time
+}
+
+// The  message contains filename of file which client needs to read.
+message File { string filename = 1; }
+
+// The remote file read service definition.
+service RemoteFileRreaderService {
+
+  // query whether the file exists
+  rpc exists(File) returns (FileStatus) {}
+
+  // read the file,if file not exists,line will be empty
+  rpc read(File) returns (stream FileLine) {}
+}

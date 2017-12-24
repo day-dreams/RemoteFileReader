@@ -6,6 +6,7 @@ RemoteFileReader
 
 - [What is RemoteFileReader?](#what-is-remotefilereader)
 - [Why RemoteFileReader?](#why-remotefilereader)
+- [Usage](#usage)
 
 <!-- /TOC -->
 
@@ -32,3 +33,20 @@ RemoteFileReader是一个基于rpc的远程文件浏览应用。
 正好最近也想学习一下流行的rpc框架，这是个很好的练习。
 
 初步想法是使用protobuf+grpc来实现这个功能。
+
+# Usage
+
+* 配置
+
+根据需要修改settings.json中相应的字段值
+
+* 运行服务器
+```bash
+python src/server settings.json
+```
+
+* 运行客户端
+```bash
+python src/client settings.json filename
+```
+

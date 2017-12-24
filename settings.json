@@ -1,0 +1,11 @@
+{
+    "server": {
+        "listen": {
+            "port": "12345",
+            "address": "0.0.0.0"
+        },
+        "worker": {
+            "max_num": 5
+        }
+    }
+}
