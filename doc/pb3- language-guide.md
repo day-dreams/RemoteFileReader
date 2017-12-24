@@ -27,7 +27,7 @@ Language Guide (proto3)
 需要注意的是，tag小于16时，在字节流中只占用一个字节;如果大于等于16,会占用2个及多个字节。具体原理看[这篇文档](https://developers.google.com/protocol-buffers/docs/encoding)
 
 
-##　Reserved Fields
+## Reserved Fields
 
 偶尔会有这样的需求：从当前版本的message删除几个fields，但又不想让后续的版本使用这几个fields对应的tags，因为有可能在未来某个版本里重新加入这几个fields而导致tag冲突。这时候就需要使用reserved fields这样的特性.
 
