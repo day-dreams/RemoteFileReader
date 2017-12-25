@@ -1,0 +1,21 @@
+{
+    "server": {
+        "listen": {
+            "port": "12345",
+            "address": "0.0.0.0"
+        },
+        "worker": {
+            "max_num": 5
+        },
+        "files": [
+            {
+                "logic_filename": "censysdata.20171203.csv",
+                "physical_filename": "/media/moon/bc-moon/workfiles/dns/censysdata/20171203/20171203.csv"
+            },
+            {
+                "logic_filename": "readme",
+                "physical_filename": "/home/moon/workplace/rfr/README.md"
+            }
+        ]
+    }
+}

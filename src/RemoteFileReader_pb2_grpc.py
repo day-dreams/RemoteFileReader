@@ -24,6 +24,11 @@ class RemoteFileRreaderServiceStub(object):
         request_serializer=RemoteFileReader__pb2.File.SerializeToString,
         response_deserializer=RemoteFileReader__pb2.FileLine.FromString,
         )
+    self.get_all_filestatus = channel.unary_stream(
+        '/RemoteFileRreaderService/get_all_filestatus',
+        request_serializer=RemoteFileReader__pb2.EmptyRequest.SerializeToString,
+        response_deserializer=RemoteFileReader__pb2.FileStatus.FromString,
+        )
 
 
 class RemoteFileRreaderServiceServicer(object):
@@ -44,6 +49,13 @@ class RemoteFileRreaderServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def get_all_filestatus(self, request, context):
+    """get all logic_filename
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_RemoteFileRreaderServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -56,6 +68,11 @@ def add_RemoteFileRreaderServiceServicer_to_server(servicer, server):
           servicer.read,
           request_deserializer=RemoteFileReader__pb2.File.FromString,
           response_serializer=RemoteFileReader__pb2.FileLine.SerializeToString,
+      ),
+      'get_all_filestatus': grpc.unary_stream_rpc_method_handler(
+          servicer.get_all_filestatus,
+          request_deserializer=RemoteFileReader__pb2.EmptyRequest.FromString,
+          response_serializer=RemoteFileReader__pb2.FileStatus.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

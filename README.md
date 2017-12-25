@@ -38,15 +38,15 @@ RemoteFileReader是一个基于rpc的远程文件浏览应用。
 
 * 配置
 
-根据需要修改settings.json中相应的字段值
+根据需要修改config.json中相应的字段值
 
 * 运行服务器
 ```bash
-python src/server settings.json
+python src/server config.json
 ```
 
 * 运行客户端
 ```bash
-python src/client settings.json filename
+python src/client config.json filename
 ```
 
